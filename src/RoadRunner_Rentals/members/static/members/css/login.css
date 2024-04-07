@@ -12,6 +12,7 @@ main #login_form {
 
     display: flex;
     flex-direction: column;
+    gap: 30px;
 
     background: rgba( 94, 80, 85, 0.9 );
     box-shadow: 0 8px 32px 0 #86525044;
@@ -21,8 +22,8 @@ main #login_form {
 
     justify-content: space-evenly;
     align-items: center;
-    height: 55vh;
-    width: 35vw;
+    min-height: clamp(300px, 60%, 700px);
+    width: clamp(300px, 60%, 500px)
 }
 
 main #login_form h2 {
@@ -34,16 +35,20 @@ main #login_form h2 {
 main #login_form form {
     display: flex;
     flex-direction: column;
-    gap: 30%;
+    gap: 30px;
 }
 
 main #login_form form .input {
-    width: clamp(200px, 50%, 300px);
     display: flex;
-    justify-content: center;
-    align-items: stretch;
+    width: 100%;
 
-    gap: 5%;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+main #login_form form .input label {
+    text-align: right;
 }
 
 main #login_form form .input input {
