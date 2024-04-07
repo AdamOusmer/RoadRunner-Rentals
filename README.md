@@ -9,8 +9,6 @@ _Presented to Dr. Rodrigo Morales_
 
 - [Team Members](#team-members)
 - [Project Description](#project-description)
-- [Project Requirements](#project-requirements)
-- [Coding Style](#coding-style)
 
 ## Team Members
 
