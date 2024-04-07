@@ -1,19 +1,58 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    <link rel="icon" href="{% static 'home/assets/img/logo.png' %}">
+    {% block extra_head %}{% endblock %}
+
     <title>{% block title %}Django App{% endblock %}</title>
 </head>
 <body>
 
-    <nav></nav>
+    <nav>
+
+        <a href="{% url 'home' %}"><img src="{% static 'home/assets/img/logo.png' %}" alt=""></a>
+
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#">Browse</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><span></span></li>
+        </ul>
+    </nav>
+
+    <header>
+        {% block header %}
+        {% endblock %}
+    </header>
 
     <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    <footer></footer>
+    <footer>
+        <section>
+            <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Term of Use</a></li>
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>            </ul>
+        </section>
+
+        <section>
+            <h2>Your Journey, Our Fleet.</h2>
+        </section>
+
+        <section>
+            <p>&copy; 2024 RoadRunner Rentals.</p>
+            <p>All rights reserved.</p>
+        </section>
+
+    </footer>
 </body>
 </html>
