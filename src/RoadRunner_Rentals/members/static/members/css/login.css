@@ -14,6 +14,8 @@ main #login_form {
     flex-direction: column;
     gap: 30px;
 
+    padding: 10px 0;
+
     background: rgba( 94, 80, 85, 0.9 );
     box-shadow: 0 8px 32px 0 #86525044;
     backdrop-filter: blur( 7.5px );
