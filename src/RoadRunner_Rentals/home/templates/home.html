@@ -1,3 +1,29 @@
 {% extends "base.html" %}
 
 {% block title %}Home{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="../static/home/css/home.css">
+{% endblock %}
+
+
+{% block header %}
+    <h1>Welcome to RoadRunner Rentals</h1>
+
+    <div id="header_buttons">
+        <a href="#" class="button">Browse</a>
+        <a href="#" class="button">Contact</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section id="about">
+        <h2>About Us</h2>
+
+        <div class="content">
+            <pre>RoadRunner Rentals is a car rental service that offers a wide range of vehicles for rent. We have a variety of cars, trucks, and SUVs available for daily, weekly, and monthly rentals. Our goal is to provide our customers with the best possible rental experience by offering competitive rates, excellent customer service, and a wide selection of vehicles to choose from.</pre>
+            <div id="map"></div>
+        </div>
+    </section>
+{% endblock %}
+
