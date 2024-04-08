@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterUserForm
 from django.contrib import messages
-from django.urls import reverse_lazy
-
 
 # Create your views here.
+
 
 def login_user(request):
     if request.method == 'POST':
@@ -16,12 +14,20 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            # Redirect back to the previous page or 'home' if no previous page
+            redirect_to = request.session.get('redirect_to', 'home')
+            # Clear redirect_to from session
+            if 'redirect_to' in request.session:
+                del request.session['redirect_to']
+            return redirect(redirect_to)
         else:
-            messages.success(request, 'There was an error logging in. Please try again.')
+            messages.error(request, 'There was an error logging in. Please try again.')
             return redirect('login')
 
     else:
+        # Store the referring URL in session
+        if 'HTTP_REFERER' in request.META:
+            request.session['redirect_to'] = request.META['HTTP_REFERER']
         return render(request, 'authentification/login.html')
 
 
@@ -46,3 +52,6 @@ def register_user(request):
                 messages.success(request, f"{msg}: {form.error_messages[msg]}")
             return render(request, 'authentification/register.html', {'form': form})
     return render(request, 'authentification/register.html', {'form': form})
+
+def profile(request):
+    return render(request, 'profile/profile.html')

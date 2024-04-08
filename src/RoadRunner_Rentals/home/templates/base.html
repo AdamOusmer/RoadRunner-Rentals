@@ -22,7 +22,12 @@
             <li><a href="#">Browse</a></li>
 
             {% if user.is_authenticated %}
+                {% if user.is_staff %}
+                    <li><a href="{% url 'admin:index' %}">Admin</a></li>
 
+                {% else %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                {% endif %}
             <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
             <li><a href="{% url 'login' %}">Sign In / Up</a></li>
@@ -48,7 +53,7 @@
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Career</a></li>
                 <li><a href="#">Term of Use</a></li>
-                <li><a href="{% url 'admin:index' %}">Admin</a></li>            </ul>
+            </ul>
         </section>
 
         <section>

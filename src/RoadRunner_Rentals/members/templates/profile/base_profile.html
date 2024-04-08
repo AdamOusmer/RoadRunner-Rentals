@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Profile -
+    {% block extra_title %}
+    {% endblock %}
+{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="../../static/members/css/profile/profile_style.css">
+{% endblock %}
+
+{% block content %}
+    <section id="sidebar">
+
+    </section>
+
+    <section id="container_profiles">
+        {% block profile_container %}
+        {% endblock %}
+    </section>
+{% endblock %}

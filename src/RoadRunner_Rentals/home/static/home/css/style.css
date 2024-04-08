@@ -50,13 +50,12 @@ input {
 
 nav {
     position: fixed;
-    width: 90%;
+    width: 95%;
     padding: 0 5%;
     height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     z-index: 100000;
 }
 
@@ -87,7 +86,7 @@ nav a:hover {
 }
 
 nav img {
-    width: 10vw;
+    width: 5vw;
     height: auto;
     filter: invert(100%);
 }
